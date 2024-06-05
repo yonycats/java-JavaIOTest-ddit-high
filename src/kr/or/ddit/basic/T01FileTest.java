@@ -8,21 +8,21 @@ public class T01FileTest {
 		// File 객체 만들기 연습
 		
 		// 1. new File(String 파일또는경로명)
-		// => 디렉토리와 디렉토리 사이 또는 디렉토리와 파일명 사이의 구분문자는 '\'를 사용하거나
+		// => 디렉토리와 디렉토리 사이 또는 디렉토리와 파일명 사이의 구분문자는 '\\'를 사용하거나
 		//	  '/'를 사용할 수 있다.
 		File file = new File("d:/D_Other/test.txt");
 		System.out.println("파일명 : " + file.getName());
-		System.out.println("파일여부 : " + file.isFile());
-		System.out.println("디렉토리(폴더)여부 : " + file.isDirectory());
+		System.out.println("파일의 존재 여부 : " + file.isFile());
+		System.out.println("디렉토리(폴더) 존재 여부 : " + file.isDirectory());
 		System.out.println("-------------------------------");
 		
 		File file2 = new File("d:/D_Other");
 		System.out.println(file2.getName() + "은");
 		
 		if (file2.isFile()) {
-			System.out.println("파일");
+			System.out.println("파일이다");
 		} else if (file2.isDirectory()) {
-			System.out.println("디렉토리(폴더)");
+			System.out.println("디렉토리(폴더)이다");
 		}
 		System.out.println("-------------------------------");
 		
@@ -34,10 +34,12 @@ public class T01FileTest {
 		
 		
 		// 3. new File(String parent, String child)
-		File file4 = new File(".\\D_Other\\test\\..", "test.txt"); // 상대경로
-		System.out.println("절대 경로 : " + file4.getAbsolutePath()); // 절대경로
-		System.out.println("경로 :" + file4.getPath()); // 생성자에 설정해 준 경로
-		System.out.println("표준 경로 : " + file4.getCanonicalPath());
+//		File file4 = new File(".\\D_Other\\test\\..", "test.txt"); 			// 상대경로
+//		File file4 = new File("..\\D_Other\\test\\test.txt", "test.txt"); 	// 상대경로
+		File file4 = new File("../D_Other/test/", "test.txt"); 		// 상대경로
+		System.out.println("절대 경로 : " + file4.getAbsolutePath());  // 절대경로
+		System.out.println("생성자 설정 경로 :" + file4.getPath()); 		// 생성자에 설정해 준 경로
+		System.out.println("표준 경로 : " + file4.getCanonicalPath()); // 표준 경로
 		System.out.println("--------------------------------");
 		
 		
@@ -48,10 +50,12 @@ public class T01FileTest {
 		 	
 		 	1. mkdir() => File 객체의 경로 중 마지막 위치에 디렉토리를 만든다.
 		 			   => 중간의 경로가 모두 미리 만들어져 있어야 한다.
+		 			           폴더 '1개' 만들기 
 		 			   
 		 	2. mkdirs() => 중간의 경로가 없으면 중간의 경로도 새롭게 만든 후 
-		 				       마지막 위치의 디렉토리를 만들어 준다.
+		 				      마지막 위치의 디렉토리를 만들어 준다.
 		 				=> 위 두 메서드 모두 만들기를 성공하면 true, 실패하면 false 반환함.
+		 				      폴더 '여러개' 만들기 
 		 */
 		File file5 = new File("d:/D_Other/연습용");
 		
@@ -70,10 +74,5 @@ public class T01FileTest {
 			System.out.println(file6.getName() + " 만들기 실패!!!");
 		}
 		
-		
 	}
-	
-	
-	
-	
 }

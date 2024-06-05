@@ -6,6 +6,7 @@ import java.io.IOException;
 public class T05FileStreamTest {
 	public static void main(String[] args) {
 		
+		// FileInputStream => 파일로부터 바이트를 읽을 때 문자 단위 스트림으로 처리해주는 스트림
 		FileInputStream fis = null;
 		
 		// 기본적으로 1바이트씩 읽고 있기 때문에
@@ -17,7 +18,8 @@ public class T05FileStreamTest {
 			int data = 0;
 			
 			while ( (data = fis.read()) != -1 ) {
-				System.out.print((char)data);
+				// 아스키 코드 값으로 변환해서 문자로 출력
+				System.out.print( (char)data );
 			}
 			
 		} catch (IOException e) {
@@ -29,8 +31,6 @@ public class T05FileStreamTest {
 				e2.printStackTrace();
 			}
 		}
-		
-		
 		
 	}
 }
