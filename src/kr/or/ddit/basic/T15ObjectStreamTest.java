@@ -103,6 +103,8 @@ public class T15ObjectStreamTest {
 // MemberVO라는 클래스를 손쉽게 찍어내기 위해서 클래스 정의 (예제로 사용)
 // Serializable => 추상 메서드가 없음, 타입 정보를 제공하기 위한 목적으로 만든 인터페이스
 // 				       태그 인터페이스라고도 부름 (무엇이 가능하다는 정보 표시)
+
+// static은 기본적으로 IO작업의 대상이 아님 => 데이터 노저장
 class MemberVO implements Serializable {
 	
 	/*
